@@ -31,7 +31,7 @@ public class SubwayScheduler {
     @Autowired
     private ArrivalRealTimeConfiguration arrivalRealTimeConfiguration;
 
-    @Scheduled(cron = "0/12 * 17-20 * * *")
+    @Scheduled(cron = "0/12 * 17-19 * * *")
     public void runArrivalRealTimeJob(){
         //실시간 도착 정보 저장
         this.runJob("Start-Arrival-RealTIme-Batch", arrivalRealTimeConfiguration.realTimeJob());
