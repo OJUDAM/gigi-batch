@@ -47,10 +47,6 @@ public class ArrivalRealTimePositionMapper {
                 String updnLine = arrivalInfo.get("updnLine").toString();
                 String createTime = arrivalInfo.get("recptnDt").toString();
 
-                if (updnLine.equals("0") || trainName.equals("죽전") || trainName.equals("오이도") ||trainName.equals("인천")) {
-                    continue;
-                }
-
                 //맵에 저장
                 Map<String, Object> realtimePositionMap = new HashMap<>();
                 realtimePositionMap.put("trainNo", trainNo);
