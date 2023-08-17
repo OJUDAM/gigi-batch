@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public enum BundangLine {
+    CHEONGRYANGRI("K209", "청량리역"),
     WANGSIPRI ("K210", "왕십리역"),
     SEOULSUP("K211", "서울숲역"),
     APGUJEONGRODEO("K212", "압구정로데오역"),
