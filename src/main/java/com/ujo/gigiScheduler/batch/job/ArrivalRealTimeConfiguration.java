@@ -37,8 +37,9 @@ public class ArrivalRealTimeConfiguration {
     @Bean
     public Job realTimeJob() {
         return jobBuilderFactory.get("realTimeJob")
-                .start(insertArrivalRealTimeStep())    //호출 결과로부터
-                .next(insertArrivalRealTimePositionStep())
+                .start(insertArrivalRealTimePositionStep())
+//                .start(insertArrivalRealTimeStep())    //호출 결과로부터
+//                .next(insertArrivalRealTimePositionStep())
                 .build();
     }
 

@@ -31,22 +31,28 @@ public class CommonApi {
     public String callApi() {
         BufferedReader bufferedReader = null;
 
+        String result = "";
+
         try {
             //호출 응답 코드 200번대 가 아니면 로그 기록 후 예외 던짐
             if (httpURLConnection.getResponseCode() < 200 || httpURLConnection.getResponseCode() > 300) {
                 bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getErrorStream(), StandardCharsets.UTF_8));
 
-                log.error(parsingBuffer(bufferedReader));
+                result = parsingBuffer(bufferedReader);
+
+                log.error(result);
 
                 //예외 던짐
-                throw this.exception;
+                //throw this.exception;
+                //최대 호출 건수 넘을 경우 처리하기위해
+                return result;
             }
 
 
             //호출 정상 응답시
             bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), StandardCharsets.UTF_8));
 
-            String result = parsingBuffer(bufferedReader);
+            result = parsingBuffer(bufferedReader);
 
             //결과 기록
             log.debug(result);

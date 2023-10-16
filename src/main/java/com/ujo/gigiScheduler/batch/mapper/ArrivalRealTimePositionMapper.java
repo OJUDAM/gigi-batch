@@ -1,6 +1,7 @@
 package com.ujo.gigiScheduler.batch.mapper;
 
 import com.ujo.gigiScheduler.common.constants.BundangLine;
+import com.ujo.gigiScheduler.common.constants.PrimaryStationConstant;
 import com.ujo.gigiScheduler.common.constants.TrainDirectInfo;
 import com.ujo.gigiScheduler.common.constants.TrainUpDownInfo;
 import com.ujo.gigiScheduler.common.exception.BusinessException;
@@ -28,6 +29,9 @@ public class ArrivalRealTimePositionMapper {
         JSONObject jsonObject = null;
         List<ArrivalRealTimePositionEntity> realTimePositionList = new ArrayList<>();
 
+        if(responseJson.equals("next")){
+            return new ArrayList<>();
+        }
         try {
             jsonObject = jsonParser.parse(responseJson);
 

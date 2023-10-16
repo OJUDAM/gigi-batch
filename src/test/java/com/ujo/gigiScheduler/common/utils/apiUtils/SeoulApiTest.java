@@ -91,6 +91,9 @@ public class SeoulApiTest {
                 .setPathParam(stationName)
                 .build();
 
+        for(int i=0; i<100; i++){
+            requestSeoulApi(url.getUrl(), "실시간 지하철 위치");
+        }
         String responseJson = requestSeoulApi(url.getUrl(), "실시간 지하철 위치");
 
         CustomJSONParser jsonParser = new CustomJSONParser();
